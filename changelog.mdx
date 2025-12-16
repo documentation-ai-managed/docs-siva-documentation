@@ -1,0 +1,135 @@
+---
+title: Changelog
+description: Track the evolution of Siva Documentation with details on new features, improvements, and fixes.
+---
+
+## Latest Updates
+
+Stay current with Siva Documentation releases. You receive automatic notifications for new versions through your dashboard. Review changes below to understand impacts on your projects.
+
+<Callout kind="tip">
+  Bookmark this page and check it after each update. Use the `siva version` command to verify your installed version.
+</Callout>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+## New Features
+
+- Added `<Tabs>` and `<CodeGroup>` components for multi-language examples
+- Introduced `<Columns>` layout for feature grids and navigation cards
+- Enhanced Mermaid diagram support with automatic rendering
+
+## Improvements
+
+- Optimized MDX parsing speed by 40% for large documentation sites
+- Improved accessibility with better alt text handling in `<Image>` components
+
+## Bug Fixes
+
+- Fixed parsing errors with nested code blocks using 4 backticks
+- Resolved special character escaping issues for `{` and `<` in prose
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+## New Features
+
+- Integrated `<Steps>` component for sequential tutorials and guides
+- Added `<ParamField>` and `<ResponseField>` for API documentation
+- Support for `<Video>` and `<Iframe>` embeds
+
+## Bug Fixes
+
+- Corrected frontmatter YAML parsing for descriptions with colons
+- Fixed heading hierarchy enforcement (no H1 in body content)
+- Patched JSX attribute validation for double quotes only
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+## New Features
+
+- Core MDX rendering engine with component support
+- `<Callout>`, `<Card>`, and `<Update>` components for changelogs
+- Built-in syntax highlighting for 20+ languages
+
+## Breaking Changes
+
+- Removed legacy H1 support; use frontmatter titles exclusively
+- Standardized all components to PascalCase naming
+</Update>
+
+## Upgrade Guide
+
+Follow these steps to update Siva Documentation to the latest version.
+
+<Steps>
+  <Step title="Check Current Version" icon="package">
+    Run the version check in your terminal.
+
+    ```bash
+    npx siva version
+    ```
+  </Step>
+  <Step title="Update Package" icon="download">
+    <Tabs>
+      <Tab title="npm" icon="npm">
+        ```bash
+        npm install siva@latest
+        ```
+      </Tab>
+      <Tab title="yarn" icon="yarn">
+        ```bash
+        yarn add siva@latest
+        ```
+      </Tab>
+    </Tabs>
+  </Step>
+  <Step title="Rebuild Site" icon="rocket">
+    Rebuild your documentation site.
+
+    ```bash
+    npx siva build
+    npm run dev
+    ```
+  </Step>
+</Steps>
+
+## Known Issues
+
+<Callout kind="alert">
+  - Custom icons outside Lucide library may not render. Stick to documented names like `zap` or `shield`.
+  - Nested `<Mermaid>` syntax fails; always use code blocks: ```` ```mermaid graph TD A-->B ``` ````.
+  
+  Track resolutions in upcoming v1.3.0.
+</Callout>
+
+## Quick Version Highlights
+
+<Columns cols={3}>
+  <Card title="v1.2.0" icon="zap" href="#2024-10-15">
+    Multi-language support and layouts.
+  </Card>
+  <Card title="v1.1.0" icon="settings" href="#2024-09-20">
+    API docs and media embeds.
+  </Card>
+  <Card title="v1.0.0" icon="rocket" href="#2024-08-10">
+    Initial release with core components.
+  </Card>
+</Columns>
+
+## Upcoming Roadmap
+
+<ExpandableGroup>
+  <Expandable title="v1.3.0 (Q4 2024)" default-open="true">
+    - `<Request>` and `<Response>` components for full API docs
+    - Dark mode toggle in preview
+    - Real-time collaboration editing
+  </Expandable>
+  <Expandable title="v2.0.0 (Q1 2025)">
+    - AI-assisted content generation
+    - Advanced search with semantic indexing
+    - Multi-site management dashboard
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="success">
+  Contribute to Siva Documentation on GitHub. Report issues or suggest features directly.
+</Callout>

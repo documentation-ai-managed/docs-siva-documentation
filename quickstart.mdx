@@ -1,0 +1,101 @@
+---
+title: Quickstart Guide
+description: Set up your Siva documentation space in minutes and start creating your first project docs.
+---
+
+## Overview
+
+Get started with Siva Documentation quickly. Follow these steps to create an account, set up your documentation space, add your first document, and navigate the interface. You complete the process in under five minutes.
+
+<Callout kind="tip">
+  Use your GitHub account for seamless authentication and repository integration.
+</Callout>
+
+## Create Your Account
+
+Sign up using your preferred method. Siva supports GitHub OAuth for instant access to your repositories.
+
+<Tabs>
+  <Tab title="GitHub" icon="github">
+    Click **Sign up with GitHub** on the login page. Authorize Siva to access your repositories.
+  </Tab>
+  <Tab title="Email" icon="mail">
+    Enter your email and create a password. Verify your email via the confirmation link.
+  </Tab>
+</Tabs>
+
+## Initialize a Documentation Space
+
+After logging in, create a new documentation space for your project.
+
+<Steps>
+  <Step title="Select New Space" icon="plus">
+    From the dashboard, click **New Documentation Space**.
+
+    Choose a name like `my-project-docs` and select your GitHub repository if integrating.
+  </Step>
+  <Step title="Configure Settings" icon="settings">
+    Set the space slug (e.g., `my-project`) and brand color (`#3B82F6`).
+
+    Enable features like search and analytics.
+  </Step>
+  <Step title="Deploy Space" icon="rocket">
+    Click **Create Space**. Siva generates the initial structure with `index.mdx` and navigation.
+  </Step>
+</Steps>
+
+## Add Your First Document
+
+Create content using MDX. Start with the default `quickstart.mdx` file.
+
+<CodeGroup tabs="CLI,Web Editor">
+  ```bash
+  # Clone your space repo
+  git clone https://github.com/your-username/my-project-docs.git
+  cd my-project-docs
+
+  # Edit quickstart.mdx
+  echo "## Hello World" >> content/quickstart.mdx
+
+  # Commit and push
+  git add .
+  git commit -m "Add first doc"
+  git push origin main
+  ```
+  ```tsx
+  // In the web editor at /edit/quickstart.mdx
+  import { Callout } from '@components/mdx';
+
+  ## Your First Section
+
+  <Callout kind="success">
+    Document deployed live!
+  </Callout>
+  ```
+</CodeGroup>
+
+Your changes deploy automatically on push.
+
+## Basic Navigation
+
+Explore your space with these key areas.
+
+<Columns cols={3}>
+  <Card title="Dashboard" icon="layout" href="/dashboard">
+    Overview of spaces and recent edits.
+  </Card>
+  <Card title="Editor" icon="edit-3" href="/edit">
+    Real-time MDX editing with previews.
+  </Card>
+  <Card title="Preview" icon="eye" href="/preview">
+    Live site preview before publishing.
+  </Card>
+</Columns>
+
+<Expandable title="Advanced Navigation Tips" default-open="false">
+  Use the sidebar for document tree navigation. Search with `Cmd/Ctrl + K`. Customize themes in space settings.
+</Expandable>
+
+<Callout kind="success">
+  Congratulations! Your Siva documentation space is live. Next, explore themes and integrations.
+</Callout>

@@ -1,0 +1,119 @@
+---
+title: Frequently Asked Questions
+description: Find answers to common queries about using Siva Documentation for your projects.
+---
+
+## Account and Access Issues
+
+Encounter login problems? Follow these steps to regain access quickly.
+
+<Steps>
+  <Step title="Check Your Credentials" icon="user">
+    Verify your email and password. Siva uses case-sensitive logins.
+  </Step>
+  <Step title="Reset Password" icon="key">
+    Click "Forgot Password?" on the login screen. Enter your email to receive a reset link valid for 15 minutes.
+  </Step>
+  <Step title="Enable Two-Factor Authentication" icon="shield">
+    Go to Account Settings > Security. Scan the QR code with your authenticator app.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Store recovery codes securely. Download them from your security settings after enabling 2FA.
+</Callout>
+
+## Space Management Tips
+
+Organize your documentation spaces efficiently with these best practices.
+
+<Columns cols={2}>
+  <Card title="Create New Spaces" icon="folder-plus" href="/docs/spaces/create">
+    Group related docs by project or team. Limit to 10 active spaces per account.
+  </Card>
+  <Card title="Set Permissions" icon="users" href="/docs/permissions">
+    Assign viewer, editor, or admin roles. Use groups for team-wide access.
+  </Card>
+  <Card title="Archive Unused Spaces" icon="archive" href="/docs/archive">
+    Free up resources by archiving inactive spaces. Restore anytime from the dashboard.
+  </Card>
+  <Card title="Export Content" icon="download" href="/docs/export">
+    Download MDX or PDF exports for backups.
+  </Card>
+</Columns>
+
+## Troubleshooting Common Errors
+
+Resolve frequent issues without support tickets.
+
+<Tabs>
+  <Tab title="Sync Failed" icon="refresh-ccw">
+    Clear browser cache and retry. Check network connectivity.
+
+    ```bash
+    # Test API endpoint
+    curl -H "Authorization: Bearer YOUR_API_KEY" https://api.siva-docs.com/v1/sync
+    ```
+  </Tab>
+  <Tab title="Permission Denied" icon="alert-triangle">
+    Verify your role in space settings. Admins can adjust via dashboard.
+  </Tab>
+  <Tab title="Upload Limit Exceeded" icon="upload-cloud">
+    Files over 10MB require premium. Compress images first.
+  </Tab>
+</Tabs>
+
+| Error Code | Cause | Solution |
+|------------|-------|----------|
+| 401 | Invalid token | Refresh your session |
+| 403 | Insufficient permissions | Request admin access |
+| 429 | Rate limit | Wait 60 seconds and retry |
+| 500 | Server issue | Check status.siva-docs.com |
+
+## Advanced Usage Advice
+
+Customize Siva for power users.
+
+<ExpandableGroup>
+  <Expandable title="Custom Themes" default-open="true">
+    Override default styles in space settings.
+
+    <CodeGroup tabs="CSS,JSON">
+    ```css
+    :root {
+      --brand-color: #3B82F6;
+    }
+    .header {
+      background: var(--brand-color);
+    }
+    ```
+    ```json
+    {
+      "theme": {
+        "primary": "#3B82F6",
+        "logo": "https://your-logo.com/image.png"
+      }
+    }
+    ```
+    </CodeGroup>
+  </Expandable>
+  <Expandable title="API Integrations">
+    Connect external tools using webhooks.
+
+    <Callout kind="info">
+      Generate webhook URLs from Integrations > Webhooks tab.
+    </Callout>
+
+    ```javascript
+    fetch('https://api.siva-docs.com/v1/webhooks/YOUR_WEBHOOK_ID', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ event: 'page.updated', data: { id: 'doc-123' } })
+    });
+    ```
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="success">
+  Need more help? Join the Siva community forum or contact support@siva-docs.com.
+</Callout>
